@@ -1,0 +1,193 @@
+
+
+   :root {
+    --primary-color: #3b82f6;       /* Brand blue for focus states */
+    --error-color: #dc3545;         /* Error messages */
+    --text-color: #1a1a1a;          /* Main text color */
+    --border-color: #e0e0e0;        /* Borders and dividers */
+    --background-light: #f8f9fa;    /* Light backgrounds */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1); /* Small shadow */
+    --radius-md: 6px;               /* Medium border radius */
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+  }
+  
+  .home-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  
+  // Review Cards
+  .reviews-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: 2rem 0;
+  }
+  
+  .review-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+  
+  .review-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+  }
+  
+  .review-meta {
+    font-size: 0.9em;
+    color: #666;
+    
+    span {
+      display: inline-block;
+      margin-right: 0.75rem;
+    }
+  }
+
+  // expanded reviews
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    max-width: 800px;
+    width: 95%;
+    max-height: 90vh;
+    overflow: auto;
+    position: relative;
+  }
+  
+  // filter styling
+  .search-filters {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 1.5rem 0;
+  }
+  
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Custom checkbox styling */
+  .critics-pick-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    
+    .checkbox-label {
+      display: inline-block;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid var(--text-color);
+      border-radius: 3px;
+      text-align: center;
+      line-height: 1.1;
+    }
+  }
+  
+  /* Visually hidden class */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  
+  /* Global focus styles */
+  :focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+  
+  /* card focus states */
+  .review-card:focus-within {
+    box-shadow: 0 0 0 3px var(--primary-color);
+  }
+  
+  /* focus state for the close modal button */
+  .close-button:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+  
+  /* Remove outline for mouse users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* load more button styling */
+  
+  .load-more {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: opacity 0.2s;
+    
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  
+
+  .error-message {
+    color: var(--error-color);
+    padding: 1rem;
+    border: 1px solid var(--error-color);
+    border-radius: var(--radius-md);
+    background: #fff5f5;
+    margin: 1.5rem 0;
+  }
+  
+
+  /* disable transitions for reduced motion users */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none;
+      animation: none;
+    }
+  }
