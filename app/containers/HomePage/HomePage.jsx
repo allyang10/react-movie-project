@@ -115,7 +115,6 @@ export function HomePage(props) {
               onClick={(e) => handleReviewClick(review, e)}
               onKeyPress={(e) => handleReviewClick(review, e)}
               tabIndex="0"
-              role="button"
               aria-label={`View details for ${review.display_title}`}
             >
               {/* Review image with fallback handling */}

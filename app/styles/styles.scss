@@ -1,6 +1,7 @@
 
+// If I had the time, I would definitely like to make the styling less basic
 
-   :root {
+  :root {
     --primary-color: #3b82f6;       /* Brand blue for focus states */
     --error-color: #dc3545;         /* Error messages */
     --text-color: #1a1a1a;          /* Main text color */
@@ -162,7 +163,7 @@
     margin: 2rem auto;
     padding: 0.75rem 1.5rem;
     background: var(--primary-color);
-    color: white;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: var(--radius-md);
     cursor: pointer;

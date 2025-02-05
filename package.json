@@ -1,7 +1,7 @@
 {
   "name": "react-boilerplate",
   "version": "4.0.1",
-  "homepage": "https://allyang10.github.io/react-movie-project",
+  "homepage": "https:allyang10.github.io/react-movie-project",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
   "repository": {
     "type": "git",
@@ -14,15 +14,6 @@
   "author": "Max Stoiber",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env NODE_ENV=development node server",
-    "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
-    "presetup": "npm i chalk shelljs",
-    "setup": "node ./internals/scripts/setup.js",
-    "clean": "shjs ./internals/scripts/clean.js",
-    "generate": "plop --plopfile internals/generators/index.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
@@ -30,7 +21,13 @@
     "npmcheckversion": "node ./internals/scripts/npmcheckversion.js",
     "preinstall": "npm run npmcheckversion",
     "prebuild": "npm run build:clean",
-    "build:clean": "rimraf ./build"
+    "build:clean": "rimraf ./build",
+    "start": "cross-env NODE_ENV=development node server",
+    "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
+    "presetup": "npm i chalk shelljs",
+    "setup": "node ./internals/scripts/setup.js",
+    "clean": "shjs ./internals/scripts/clean.js",
+    "generate": "plop --plopfile internals/generators/index.js"
   },
   "browserslist": [
     "last 2 versions",
@@ -98,7 +95,6 @@
     "cross-env": "7.0.2",
     "css-loader": "2.1.1",
     "file-loader": "3.0.1",
-    "gh-pages": "^6.3.0",
     "html-loader": "0.5.5",
     "html-webpack-plugin": "^4.5.2",
     "image-webpack-loader": "4.6.0",

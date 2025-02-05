@@ -12,7 +12,8 @@ module.exports = options => ({
     {
       // Compile into js/build.js
       path: path.resolve(process.cwd(), 'build'),
-      publicPath: '/public',
+      //publicPath: '/public',
+      publicPath: '/react-movie-project/',
     },
     options.output,
   ), // Merge with env dependent settings

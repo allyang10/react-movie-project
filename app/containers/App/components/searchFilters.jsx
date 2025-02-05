@@ -7,7 +7,7 @@ const SearchFilters = ({ searchTerm, filters, mpaaRatings, onSearch, onFilter })
     <div className="filter-group">
       {/* Add label for the form  */}
       {/* FIXME the label is not working right now */}
-      <label for="search-input" className="visually-hidden">Search titles</label>
+      <label htmlFor="search-input" className="visually-hidden">Search titles</label>
       <input
         id="search-input"
         type="text"
@@ -64,6 +64,7 @@ const SearchFilters = ({ searchTerm, filters, mpaaRatings, onSearch, onFilter })
         aria-checked={filters.criticsPick}
         tabIndex="0"
         className="critics-pick-filter"
+        aria-label ="Critics Pick Filter"
         onKeyPress={(e) => {
           if (e.key === ' ' || e.key === 'Enter') {
             onFilter('criticsPick', !filters.criticsPick);
@@ -76,6 +77,7 @@ const SearchFilters = ({ searchTerm, filters, mpaaRatings, onSearch, onFilter })
           checked={filters.criticsPick}
           onChange={(e) => onFilter('criticsPick', e.target.checked)}
           tabIndex="-1"
+          aria-label = "Critics Pick Filter"
           style={{ position: 'absolute', opacity: 0, height: 0, width: 0 }}
         />
         <label 
