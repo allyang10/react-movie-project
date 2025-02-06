@@ -23,9 +23,9 @@ export function HomePage(props) {
   // Fetch reviews on component mount
   useEffect(() => {
     getMovieReviews();
-  }, [getMovieReviews]); // Dependency array ensures single fetch
+  }, [getMovieReviews]); // makes sure only fetching once
 
-  // Handle review selection with keyboard support
+  // make sure expanding reviews are keyboard accessible
   const handleReviewClick = (review, e) => {
     // Support both mouse click and keyboard navigation
     if (e.type === 'click' || e.key === 'Enter') {
@@ -42,7 +42,7 @@ export function HomePage(props) {
     }
   };
 
-  // Memoized filtered reviews for performance
+  // filter the reviews using memoization
   const filteredReviews = useMemo(() => {
     return (reviews || [])
       .filter(review => {
@@ -62,9 +62,9 @@ export function HomePage(props) {
       })
       .sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date))
       .slice(0, limit);
-  }, [reviews, filters, limit]); // Re-run when dependencies change
+  }, [reviews, filters, limit]); // Re-run when the dependencies change
 
-  // Memoized unique ratings for filter dropdown
+  // memoized ratings for filter dropdown
   const mpaaRatings = useMemo(() => {
     return [...new Set(
       (reviews || [])
@@ -80,7 +80,7 @@ export function HomePage(props) {
         <meta name="description" content="Browse latest movie reviews" />
       </Helmet>
 
-      {/* Sticky header with filters */}
+      {/* header with the filters */}
       <div className="header">
         <header className="page-header">
           <img src={hesImg} alt="HES Logo" className="header-logo" />
@@ -143,17 +143,19 @@ export function HomePage(props) {
                   {review.critics_pick === 1 && (
                     <span className="critics-pick">⭐ Critic's Pick</span>
                   )}
-                </div>
+                </div>aria-label = "Critics Pick Filter"
               </div>
             </article>
           ))}
         </div>
 
         {/* load more reviews */}
+        {/* load 20 at a time */}
         {filteredReviews.length >= limit && limit < 50 && (
           <button 
             className="load-more"
             onClick={() => setLimit(prev => Math.min(prev + 20, 50))}
+            // change the min
             onKeyPress={(e) => e.key === 'Enter' && setLimit(prev => Math.min(prev + 20, 50))}
             tabIndex="0"
           >

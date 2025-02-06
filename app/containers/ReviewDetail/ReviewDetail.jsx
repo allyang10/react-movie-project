@@ -2,14 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * ReviewDetail Component - Displays detailed review information
- * 
- * Best Practices:
- * - Prop validation with PropTypes
- * - Accessible HTML structure
- * - Null safety checks
- * - Semantic markup
- * - Responsive image handling
+ * ReviewDetail - shows reviews more in detail
  */
 const ReviewDetail = ({ review }) => (
   <div className="review-content">
@@ -49,7 +42,7 @@ const ReviewDetail = ({ review }) => (
           'Date unavailable'}
       </div>
 
-      {/* Reviewer byline */}
+      {/* Reviewer/critic */}
       <div className="meta-item">
         <strong>Review by:</strong> {review.byline || 'Unknown critic'}
       </div>
@@ -62,7 +55,7 @@ const ReviewDetail = ({ review }) => (
         {review.summary_short || 'No summary available'}
       </p>
       
-      {/* External article link */}
+      {/* link to article */}
       {review.link && review.link.url && (
         <a
           href={review.link.url}
@@ -77,7 +70,7 @@ const ReviewDetail = ({ review }) => (
   </div>
 );
 
-// Prop type validation
+
 ReviewDetail.propTypes = {
   review: PropTypes.shape({
     display_title: PropTypes.string,
